@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Grapple Canyon Privacy Policy</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #171a38; --paper: #fbf4e6; --ink: #23201f; --dim: #6b655f; --grab: #0b7d68; --line: #d8cdbb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--paper); font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { width: min(100% - 32px, 760px); margin: 0 auto; padding: 56px 0 72px; }
+    article { background: var(--paper); color: var(--ink); border-radius: 18px; padding: clamp(24px, 5vw, 56px); box-shadow: 0 18px 52px rgb(0 0 0 / 20%); }
+    h1, h2 { line-height: 1.2; letter-spacing: -.02em; }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 6vw, 3.25rem); }
+    h2 { margin: 34px 0 10px; font-size: 1.35rem; }
+    p { margin: 0 0 16px; }
+    ul { margin: 0 0 18px; padding-left: 1.35rem; }
+    li { margin: 5px 0; }
+    .updated { color: var(--dim); margin-bottom: 34px; }
+    a { color: var(--grab); }
+    code { font: .92em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
+    @media (prefers-color-scheme: dark) {
+      :root { --paper: #201e3d; --ink: #edebff; --dim: #b7b2d2; --line: #494465; --grab: #7ee0c3; }
+      article { box-shadow: 0 18px 52px rgb(0 0 0 / 35%); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <h1>Grapple Canyon privacy policy</h1>
+      <p class="updated"><strong>Last updated:</strong> September 11, 2026</p>
+
+      <h2>Scope</h2>
+      <p>This policy describes the current Grapple Canyon Android player build, identified by package <code>com.grapplecanyon.game</code>. It applies to the game as shipped in the closed-test candidate. If the app later adds a network service, account, advertising, analytics, purchases, or another data flow, this policy will be reviewed and updated before that build is distributed.</p>
+
+      <h2>Data kept locally by the app</h2>
+      <p>The game keeps a small amount of player state in local device storage so the same installation can remember the player's choices and progress:</p>
+      <ul>
+        <li>Sound preference: on or off (<code>gc.sound.v1</code>).</li>
+        <li>Theme preference: Auto, Day, or Night (<code>gc.theme.v1</code>).</li>
+        <li>Catalogue progression and unlocked tracks (<code>gc.progress.v2</code>).</li>
+        <li>A best time for each track (<code>gc.best.v2.&lt;track-id&gt;</code>).</li>
+        <li>The recent run ghost samples for each track (<code>gc.ghost.v2.&lt;track-id&gt;</code>).</li>
+        <li>The best-run ghost samples used for the best-time comparison (<code>gc.ghostbest.v2.&lt;track-id&gt;</code>).</li>
+        <li>The Full Run best time (<code>gc.fullrun.v2</code>).</li>
+      </ul>
+      <p>Ghost records are gameplay samples used to draw a replay on the same device; they are not a player profile or an online account. The current player catalogue contains five tracks. The game also keeps an in-memory copy while a session is running; if browser storage is unavailable, a new record is not promised to survive reload.</p>
+
+      <h2>What the current app does not collect</h2>
+      <p>The current player build has no account or login, advertising, analytics or telemetry, remote logging, purchases, social features, user-generated-content service, or remote runtime asset service. It does not send the local state listed above to a Grapple Canyon server. The Android package has no <code>INTERNET</code> permission and the current project disables cleartext traffic. The app's packaged game assets and player state therefore remain local under the current implementation.</p>
+      <p>These statements describe the current build and are not a promise about a future version with different functionality.</p>
+
+      <h2>Feedback email</h2>
+      <p>If a user chooses to contact the project at <a href="mailto:hakan.ergin@gmail.com">hakan.ergin@gmail.com</a>, the message and any information the user includes are handled by the user's and the email provider's services under their own terms. The game does not automatically collect or transmit feedback, and a user can choose what to include in an email.</p>
+
+      <h2>Retention, reset, and deletion</h2>
+      <p>Local state remains on the device until the user changes it, uses the game's reset control, clears the app's data, or uninstalls the app, subject to the device operating system's behavior.</p>
+      <p>In the player build, <strong>Reset progress</strong> clears catalogue progression and unlocks, per-track best times, recent and best ghost records, and the Full Run best. It preserves the sound and theme preferences. Clearing app data or uninstalling removes the app's local state under the current Android no-backup contract. There is no Grapple Canyon account or server-side profile to delete.</p>
+
+      <h2>Security and offline posture</h2>
+      <p>The app uses the platform's local storage for the state above and currently does not have an app network service. This limits the app's transmission surface, but no storage method can guarantee absolute security; users should keep their device and operating system protected. The Android project records <code>android:allowBackup="false"</code> and <code>android:usesCleartextTraffic="false"</code>; these are implementation facts to recheck for the exact release candidate, not a promise about every device backup mechanism.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If the app's data practices change, the owner will update this policy, change the <strong>Last updated</strong> date, publish the revised text at the public policy URL, and review the corresponding Play Console Data safety answers before distribution.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to <a href="mailto:hakan.ergin@gmail.com">hakan.ergin@gmail.com</a>. Do not include sensitive information unless it is needed to explain the question.</p>
+    </article>
+  </main>
+</body>
+</html>
