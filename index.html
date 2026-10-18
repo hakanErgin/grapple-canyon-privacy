@@ -30,7 +30,7 @@
   <main>
     <article>
       <h1>Grapple Canyon privacy policy</h1>
-      <p class="updated"><strong>Last updated:</strong> September 15, 2026</p>
+      <p class="updated"><strong>Last updated:</strong> October 18, 2026</p>
 
       <h2>Scope</h2>
       <p>This policy describes the Android player build being prepared for the next Grapple Canyon release, identified by package <code>com.grapplecanyon.game</code>, and the hosted web build at <code>https://play.grapple-canyon.workers.dev</code>. It is written for the code currently prepared as a Community-enabled release candidate, which includes the Community Levels service described below. If the app later adds an account, advertising, analytics, purchases, or another data flow, this policy must be reviewed and updated before that build is distributed.</p>
@@ -40,15 +40,16 @@
       <ul>
         <li>Sound preference: on or off (<code>gc.sound.v1</code>).</li>
         <li>Theme preference: Auto, Day, or Night (<code>gc.theme.v1</code>).</li>
-        <li>Catalogue progression and unlocked tracks (<code>gc.progress.v2</code>).</li>
+        <li>Catalogue progression and unlocked tracks (<code>gc.progress.v3</code>).</li>
         <li>A best time for each track (<code>gc.best.v2.&lt;track-id&gt;</code>).</li>
+        <li>The most bonus hoops (stars) collected on a finished run of each track (<code>gc.stars.v1.&lt;track-id&gt;</code>).</li>
         <li>The recent run ghost samples for each track (<code>gc.ghost.v2.&lt;track-id&gt;</code>).</li>
         <li>The best-run ghost samples used for the best-time comparison (<code>gc.ghostbest.v2.&lt;track-id&gt;</code>).</li>
-        <li>The Full Run best time (<code>gc.fullrun.v2</code>).</li>
+        <li>The Full Run best time (<code>gc.fullrun.v3</code>).</li>
         <li>Editor drafts and the custom levels you saved (<code>gc.editor.draft.v1</code>, <code>gc.custom.v1</code>).</li>
         <li>Community Levels state: a random device identifier created the first time the game talks to the service (<code>gc.device.v1</code>); a cached copy of the last Community level lists you saw (<code>gc.community.cache.v1</code>); the votes you gave (<code>gc.community.votes.v1</code>); the levels and creators you chose to hide on this device (<code>gc.community.blocks.v1</code>); the levels you published together with the removal token for each (<code>gc.published.v1</code>); and the author name you last typed (<code>gc.author.v1</code>); and a local receipt recording acceptance of the current Community rules (<code>gc.community.rules.accepted.v1</code>, currently <code>v1</code>).</li>
       </ul>
-      <p>Ghost records are gameplay samples used to draw a replay on the same device; they are not a player profile or an online account. The current player catalogue contains five tracks. The game also keeps an in-memory copy while a session is running; if browser storage is unavailable, a new record is not promised to survive reload.</p>
+      <p>Ghost records are gameplay samples used to draw a replay on the same device; they are not a player profile or an online account. The current player catalogue contains three tracks. The game also keeps an in-memory copy while a session is running; if browser storage is unavailable, a new record is not promised to survive reload.</p>
 
       <h2>Community Levels service</h2>
       <p>The game includes a small level-sharing service so that players can publish levels they made in the Editor and play, vote on, and report levels made by other players. The service is a Cloudflare Worker reached at <code>https://grapple-levels.grapple-canyon.workers.dev</code> over HTTPS only. Cloudflare runs the Worker on its global network at the location nearest to the player; the service's database is a Cloudflare D1 database located in Cloudflare's Eastern Europe region. The service does not enable request logging.</p>
@@ -74,7 +75,7 @@
 
       <h2>Retention, reset, and deletion</h2>
       <p>Local state remains on the device until the user changes it, uses the game's reset control, clears the app's data, or uninstalls the app, subject to the device operating system's behavior.</p>
-      <p>In the player build, <strong>Reset progress</strong> clears catalogue progression and unlocks, per-track best times, recent and best ghost records, and the Full Run best. It preserves the sound and theme preferences and the Community Levels state listed above (device identifier, cached lists, votes, published levels and their removal tokens, author name, local Community blocks, Community rules acceptance receipt, Editor drafts, and custom levels). Clearing app data or uninstalling removes the app's local state under the current Android no-backup contract, including the removal tokens; a level whose token is lost can no longer be removed from that device. There is no Grapple Canyon account or server-side profile to delete.</p>
+      <p>In the player build, <strong>Reset progress</strong> clears catalogue progression and unlocks, per-track best times and stars, recent and best ghost records, and the Full Run best. It preserves the sound and theme preferences and the Community Levels state listed above (device identifier, cached lists, votes, published levels and their removal tokens, author name, local Community blocks, Community rules acceptance receipt, Editor drafts, and custom levels). If the device's storage refuses a deletion, the level list says the reset did not finish, and records it could not delete stay on the device until a later reset succeeds or the app's data is cleared. When levels leave the catalogue, the app deletes their best times, stars and ghost records, the previous progression record (<code>gc.progress.v2</code>) and the previous Full Run best (<code>gc.fullrun.v2</code>), the next time it starts. Clearing app data or uninstalling removes the app's local state under the current Android no-backup contract, including the removal tokens; a level whose token is lost can no longer be removed from that device. There is no Grapple Canyon account or server-side profile to delete.</p>
       <p>To remove a level you published, use <strong>Remove online</strong> in the level list's Custom section on the device that published it. To ask for the removal of a level or record you cannot remove yourself, contact the address in the Contact section and name the level and, if you know it, the author name. The owner can hide the level from the service, after which the ninety-day deletion applies, and can delete a level and its votes and reports outright on request.</p>
 
       <h2>Security and offline posture</h2>
