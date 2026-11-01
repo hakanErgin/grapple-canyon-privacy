@@ -30,7 +30,7 @@
   <main>
     <article>
       <h1>Grapple Canyon privacy policy</h1>
-      <p class="updated"><strong>Last updated:</strong> October 28, 2026</p>
+      <p class="updated"><strong>Last updated:</strong> November 1, 2026</p>
 
       <h2>Scope</h2>
       <p>This policy describes the Android player build being prepared for the next Grapple Canyon release, identified by package <code>com.grapplecanyon.game</code>. There is no web version. The app has no network service: it makes no network requests and sends nothing to a Grapple Canyon server. If the app later adds an account, advertising, analytics, purchases, or another data flow, this policy must be reviewed and updated before that build is distributed.</p>
@@ -40,14 +40,16 @@
       <ul>
         <li>Sound preference: on or off (<code>gc.sound.v1</code>).</li>
         <li>Theme preference: Auto, Day, or Night (<code>gc.theme.v1</code>).</li>
-        <li>Catalogue progression and unlocked tracks (<code>gc.progress.v4</code>).</li>
+        <li>Ghost preference: shown or hidden (<code>gc.ghostshow.v1</code>).</li>
+        <li>Graphics preference: high or low (<code>gc.perf.v1</code>).</li>
+        <li>Catalogue progression and unlocked tracks (<code>gc.progress.v5</code>).</li>
         <li>A best time for each track (<code>gc.best.v2.&lt;track-id&gt;</code>).</li>
         <li>The most bonus hoops (stars) collected on a finished run of each track (<code>gc.stars.v1.&lt;track-id&gt;</code>).</li>
         <li>The best time and best-run ghost samples for each section of a track (<code>gc.secbest.v1.&lt;track-id&gt;</code>).</li>
-        <li>The Full Run best time (<code>gc.fullrun.v4</code>).</li>
+        <li>The Full Run best time (<code>gc.fullrun.v7</code>).</li>
         <li>Editor drafts and the custom levels you saved (<code>gc.editor.draft.v2</code>, <code>gc.custom.v1</code>). An Editor draft from an earlier version (<code>gc.editor.draft.v1</code>) is deleted the next time the game starts.</li>
       </ul>
-      <p>Ghost records are gameplay samples used to draw a replay on the same device; they are not a player profile or an online account. The current player catalogue contains two tracks. The game also keeps an in-memory copy while a session is running; if browser storage is unavailable, a new record is not promised to survive reload.</p>
+      <p>Ghost records are gameplay samples used to draw a replay on the same device; they are not a player profile or an online account. The current player catalogue contains three tracks. The game also keeps an in-memory copy while a session is running; if browser storage is unavailable, a new record is not promised to survive reload.</p>
 
       <h2>Sharing a level</h2>
       <p>A level you made leaves the device only when you share it. <strong>Share</strong> on a level in My levels opens Android's share sheet, and you choose the app that sends it (for example, a chat or email app). That app then handles the message under its own privacy terms. The shared level code holds the level and its Recordings, including any names you typed into them, such as the level name. The app adds nothing that identifies you or your device. A code someone sends you is added to My levels only when you paste it into <strong>Import level</strong>. Grapple Canyon has no server that receives, stores or lists shared levels.</p>
@@ -61,7 +63,7 @@
 
       <h2>Retention, reset, and deletion</h2>
       <p>Local state remains on the device until the user changes it, uses the game's reset control, clears the app's data, or uninstalls the app, subject to the device operating system's behavior.</p>
-      <p>In the player build, <strong>Reset progress</strong> clears catalogue progression and unlocks, per-track best times and stars, section best times and ghost records, and the Full Run best. It preserves the sound and theme preferences, Editor drafts, and custom levels. If the device's storage refuses a deletion, the level list says the reset did not finish, and records it could not delete stay on the device until a later reset succeeds or the app's data is cleared. When levels leave the catalogue, the app deletes their best times, stars and section records, the earlier progression records (<code>gc.progress.v2</code>, <code>gc.progress.v3</code>) and the earlier Full Run bests (<code>gc.fullrun.v2</code>, <code>gc.fullrun.v3</code>), the next time it starts. Reset progress deletes those earlier records too. It also deletes the whole-run ghost records of earlier versions (<code>gc.ghost.v2.&lt;track-id&gt;</code>, <code>gc.ghostbest.v2.&lt;track-id&gt;</code>) and custom levels saved in the earlier level format, with their records.</p>
+      <p>In the player build, <strong>Reset progress</strong> clears catalogue progression and unlocks, per-track best times and stars, section best times and ghost records, and the Full Run best. It preserves the sound, theme, ghost and graphics preferences, Editor drafts, and custom levels. If the device's storage refuses a deletion, the level list says the reset did not finish, and records it could not delete stay on the device until a later reset succeeds or the app's data is cleared. When levels join or leave the catalogue, the app deletes the best times, stars and section records of levels that left, the earlier progression records (<code>gc.progress.v2</code>, <code>gc.progress.v3</code>, <code>gc.progress.v4</code>) and the earlier Full Run bests (<code>gc.fullrun.v2</code>, <code>gc.fullrun.v3</code>, <code>gc.fullrun.v4</code>, <code>gc.fullrun.v5</code>, <code>gc.fullrun.v6</code>), the next time it starts. Reset progress deletes those earlier records too. It also deletes the whole-run ghost records of earlier versions (<code>gc.ghost.v2.&lt;track-id&gt;</code>, <code>gc.ghostbest.v2.&lt;track-id&gt;</code>) and custom levels saved in the earlier level format, with their records.</p>
       <p>Earlier versions had a Community Levels service for sharing levels online. It has been removed from the app, and the service and the levels published to it have been deleted. The next time it starts, the app deletes the state that feature kept on the device: the random device identifier (<code>gc.device.v1</code>), the cached level lists (<code>gc.community.cache.v1</code>, <code>gc.community.cache.v2</code>), votes (<code>gc.community.votes.v1</code>), hidden levels and creators (<code>gc.community.blocks.v1</code>), published levels and their removal tokens (<code>gc.published.v1</code>), the author name (<code>gc.author.v1</code>), the rules receipt (<code>gc.community.rules.accepted.v1</code>), and the best times, stars, section records and ghosts of Community levels played earlier. Reset progress deletes them too.</p>
       <p>Clearing app data or uninstalling removes the app's local state under the current Android no-backup contract. There is no Grapple Canyon account or server-side profile to delete.</p>
 
