@@ -33,7 +33,7 @@
       <p class="updated"><strong>Last updated:</strong> November 1, 2026</p>
 
       <h2>Scope</h2>
-      <p>This policy describes the Android player build being prepared for the next Grapple Canyon release, identified by package <code>com.grapplecanyon.game</code>. There is no web version. The app has no network service: it makes no network requests and sends nothing to a Grapple Canyon server. If the app later adds an account, advertising, analytics, purchases, or another data flow, this policy must be reviewed and updated before that build is distributed.</p>
+      <p>This policy describes the Grapple Canyon Android app, identified by package <code>com.grapplecanyon.game</code>. There is no web version. The app has no network service: it makes no network requests and sends nothing to a Grapple Canyon server. If the app later adds an account, advertising, analytics, purchases, or another data flow, this policy must be reviewed and updated before that build is distributed.</p>
 
       <h2>Data kept locally by the app</h2>
       <p>The game keeps a small amount of player state in local device storage so the same installation can remember the player's choices and progress:</p>
@@ -49,7 +49,7 @@
         <li>The Full Run best time (<code>gc.fullrun.v7</code>).</li>
         <li>Editor drafts and the custom levels you saved (<code>gc.editor.draft.v2</code>, <code>gc.custom.v1</code>). An Editor draft from an earlier version (<code>gc.editor.draft.v1</code>) is deleted the next time the game starts.</li>
       </ul>
-      <p>Ghost records are gameplay samples used to draw a replay on the same device; they are not a player profile or an online account. The current player catalogue contains three tracks. The game also keeps an in-memory copy while a session is running; if browser storage is unavailable, a new record is not promised to survive reload.</p>
+      <p>Ghost records are gameplay samples used to draw a replay on the same device; they are not a player profile or an online account. The current player catalogue contains three tracks. The game also keeps an in-memory copy while a session is running; if the device storage is unavailable, a new record is not promised to survive reload.</p>
 
       <h2>Sharing a level</h2>
       <p>A level you made leaves the device only when you share it. <strong>Share</strong> on a level in My levels opens Android's share sheet, and you choose the app that sends it (for example, a chat or email app). That app then handles the message under its own privacy terms. The shared level code holds the level and its Recordings, including any names you typed into them, such as the level name. The app adds nothing that identifies you or your device. A code someone sends you is added to My levels only when you paste it into <strong>Import level</strong>. Grapple Canyon has no server that receives, stores or lists shared levels.</p>
